@@ -78,7 +78,7 @@ class LoanWorkerServiceTest {
     }
     @Test
     void shouldDoNothing_WhenLoanIsAlreadyProcessed() {
-        // given
+        
         Loan loan = new Loan();
         loan.setId(4L);
         loan.setLoanAmount(300000.00);
@@ -87,13 +87,13 @@ class LoanWorkerServiceTest {
         when(loanRepository.findLoanByIdForProcessing(4L))
                 .thenReturn(Optional.of(loan));
 
-        // when
+
         loanWorkerService.processSingleLoan(4L);
 
-        // then
+
         assertEquals(LoanStatus.APPROVED_BY_SYSTEM, loan.getStatus());
 
-        // IMPORTANT: no side effects
+
         verify(loanRepository, never()).save(any());
         verify(agentAssignmentService, never()).assignAgentToLoan(any());
     }

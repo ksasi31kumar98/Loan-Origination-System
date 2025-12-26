@@ -36,31 +36,31 @@ public class LoanServiceImpltest {
     @Test
     void shouldCreateLoanWithAppliedStatus() {
 
-        // 1️⃣ Arrange - input request
+
         LoanCreateRequest request = new LoanCreateRequest();
         request.setCustomerName("Sasi");
         request.setCustomerPhone("9876543210");
         request.setLoanAmount(700000.0);
         request.setLoanType(LoanType.HOME);
 
-        // 2️⃣ Fake customer (VERY IMPORTANT)
+
         User customer = new User();
         customer.setId(1L);
         customer.setName("Sasi");
         customer.setPhone("9876543210");
 
-        // 3️⃣ Mock user repository behavior
+
         when(userRepository.findByPhone("9876543210"))
                 .thenReturn(Optional.of(customer));
 
-        // 4️⃣ Mock loan save
+
         when(loanRepository.save(any(Loan.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
 
-        // 5️⃣ Act
+
         LoanResponse response = loanService.createLoan(request);
 
-        // 6️⃣ Assert
+
         assertNotNull(response);
         assertEquals(LoanStatus.APPLIED, response.getStatus());
         assertEquals(700000.0, response.getLoanAmount());
