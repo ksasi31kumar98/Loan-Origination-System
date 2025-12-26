@@ -4,11 +4,14 @@ import com.turno.loan_origination_system.dto.LoanCreateRequest;
 import com.turno.loan_origination_system.dto.LoanResponse;
 import com.turno.loan_origination_system.entity.Loan;
 import com.turno.loan_origination_system.entity.User;
+import com.turno.loan_origination_system.entity.enums.LoanStatus;
 import com.turno.loan_origination_system.entity.enums.UserRole;
 import com.turno.loan_origination_system.repository.LoanRepository;
 import com.turno.loan_origination_system.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -30,6 +33,8 @@ public class LoanServiceImpl implements LoanService {
         loan.setCustomer(customer);
         loan.setLoanAmount(loanCreateRequest.getLoanAmount());
         loan.setLoanType(loanCreateRequest.getLoanType());
+        loan.setStatus(LoanStatus.APPLIED);
+        loan.setCreatedAt(LocalDateTime.now());
         Loan savedLoan=loanRepository.save(loan);
 
         return mapToResponse(savedLoan);
@@ -42,6 +47,7 @@ public class LoanServiceImpl implements LoanService {
         response.setCustomerPhone(loan.getCustomer().getPhone());
         response.setLoanAmount(loan.getLoanAmount());
         response.setLoanType(loan.getLoanType());
+        response.setCreatedAt(loan.getCreatedAt());
         response.setStatus(loan.getStatus());
         return response;
     }

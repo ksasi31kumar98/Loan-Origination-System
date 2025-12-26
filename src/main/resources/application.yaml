@@ -2,19 +2,25 @@ spring:
   application:
     name: loan-origination-system
   datasource:
-    url: jdbc:mysql://localhost:3306/loan_origination_system
+    url: jdbc:mysql://localhost:3306/loan_origination
     username: root
     password: Sasi@1457
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+
+
+
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
+    defer-datasource-initialization: true
     properties:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
-
+  sql:
+    init:
+      mode: always
 server:
   port: 8080

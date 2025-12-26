@@ -11,7 +11,7 @@ public class LoanProcessingScheduler {
 
     private final LoanProcessingService loanProcessingService;
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 10000, initialDelay = 15000)
     public void processPendingLoans() {
         loanProcessingService.processPendingLoans();
     }

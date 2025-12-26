@@ -5,5 +5,6 @@ import com.turno.loan_origination_system.entity.User;
 
 public interface NotificationService {
     void notifyAgentAssignment(User agent, Loan loan);
+    void notifyManagerAssignment(User manager, Loan loan);
     void notifyCustomerApproval(Loan loan);
 }

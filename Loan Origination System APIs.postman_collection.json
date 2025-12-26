@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "35148bdb-1613-402d-9513-20ac3be6c0b2",
+		"name": "Loan Origination System APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25432490"
+	},
+	"item": [
+		{
+			"name": "Submit a new loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"sasi\",\r\n  \"customerPhone\": \"98895498510\",\r\n  \"loanAmount\": 700000,\r\n  \"loanType\": \"PERSONAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit a new loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"Arun\",\r\n  \"customerPhone\": \"9876500000\",\r\n  \"loanAmount\": 700000,\r\n  \"loanType\": \"HOME\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit a new loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"Kumar\",\r\n  \"customerPhone\": \"9999999999\",\r\n  \"loanAmount\": 1500000,\r\n  \"loanType\": \"HOME\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make agent decision",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"decision\":\"REJECT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/agents/2/loans/2/decision",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"agents",
+						"2",
+						"loans",
+						"2",
+						"decision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get status count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans/status-count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans",
+						"status-count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top 3 Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/top",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"top"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagination using status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans?status=APPROVED_BY_SYSTEM&page=0&size=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "APPROVED_BY_SYSTEM"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit a new loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"Amit\",\r\n  \"customerPhone\": \"9999999979\",\r\n  \"loanAmount\": 400000,\r\n  \"loanType\": \"HOME\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make agent decision",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"decision\":\"REJECT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/agents/2/loans/3/decision",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"agents",
+						"2",
+						"loans",
+						"3",
+						"decision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make agent decision",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"decision\":\"REJECT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/agents/5/loans/7/decision",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"agents",
+						"5",
+						"loans",
+						"7",
+						"decision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submit a new loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"sasi\",\r\n  \"customerPhone\": \"98895498510\",\r\n  \"loanAmount\": 700000,\r\n  \"loanType\": \"PERSONAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make agent decision",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"decision\":\"APPROVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/agents/1/loans/5/decision",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"agents",
+						"1",
+						"loans",
+						"5",
+						"decision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get status count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans/status-count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans",
+						"status-count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagination using status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/loans?status=APPROVED_BY_AGENT&page=1&size=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "APPROVED_BY_AGENT"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

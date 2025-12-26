@@ -10,25 +10,33 @@ import org.springframework.stereotype.Service;
 @Service
 public class MockNotificationService implements NotificationService {
 
-    private static final Logger log=LoggerFactory.getLogger(MockNotificationService.class);
+    private static final Logger log =
+            LoggerFactory.getLogger(MockNotificationService.class);
+
     @Override
     public void notifyAgentAssignment(User agent, Loan loan) {
         log.info(
-                "Notification sent to agent {} for loan {}.Manager:{}",
+                "Notification sent to agent {} for loan {}",
                 agent.getName(),
-                loan.getId(),
-                agent.getManager()!=null?agent.getManager().getName():"None"
+                loan.getId()
         );
+    }
 
+    @Override
+    public void notifyManagerAssignment(User manager, Loan loan) {
+        log.info(
+                "Notification sent to manager {} for loan {}",
+                manager.getName(),
+                loan.getId()
+        );
     }
 
     @Override
     public void notifyCustomerApproval(Loan loan) {
         log.info(
-                "SMS->Loan{} approved.Customer:{}",
+                "SMS -> Loan {} approved. Customer phone={}",
                 loan.getId(),
                 loan.getCustomer().getPhone()
         );
-
     }
 }
